@@ -5,7 +5,11 @@ const io = require("socket.io")(http);
 const PORT = 4000;
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/main.html");
+  res.sendFile(__dirname + "/views/login.html");
+});
+
+app.get("/main", (req, res) => {
+  res.sendFile(__dirname + "/views/main.html");
 });
 
 http.listen(PORT, () => {
