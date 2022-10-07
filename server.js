@@ -12,6 +12,12 @@ app.get("/main", (req, res) => {
   res.sendFile(__dirname + "/views/main.html");
 });
 
+io.on("connection", (socket) => {
+  socket.on("chat", (msg) => {
+    io.emit("chat", msg)
+  });
+});
+
 http.listen(PORT, () => {
   console.log(`${PORT} server start`);
 });
