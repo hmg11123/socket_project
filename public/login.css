@@ -1,0 +1,54 @@
+.topBox {
+  width: 100%;
+  height: 30vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgb(200, 134, 47);
+}
+
+.midBox {
+  width: 100%;
+  height: 35vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: antiquewhite;
+}
+
+.midBox input {
+  width: 300px;
+  height: 50px;
+
+  border-radius: 12px;
+
+  outline: none;
+  background: #fff;
+  border: none;
+
+  padding-left: 15px;
+
+  margin: 5px 0px;
+}
+
+.midBox button {
+  width: 315px;
+  height: 50px;
+
+  border-radius: 12px;
+
+  border: none;
+}
+
+.bottomBox {
+  width: 100%;
+  height: 35vh;
+
+  background-color: rgb(37, 24, 6);
+}

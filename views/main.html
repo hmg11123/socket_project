@@ -4,26 +4,29 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>LIVE CHAT</title>
     <link rel="stylesheet" href="/styles.css" />
     <script src="/socket.io/socket.io.js"></script>
   </head>
   <body>
-    <header class="headerBox">
-      <h1>Live Chat</h1>
-    </header>
+    <div class="mainbody">
+      <header class="headerBox">
+        <h1>Live Chat</h1>
+      </header>
 
-    <div class="mainBox">
-      <ul class="mainUl" id="room"></ul>
-    </div>
+      <div class="mainBox">
+        <ul class="mainUl" id="room"></ul>
+      </div>
 
-    <div class="baBox">
-      <section class="ba">
-        <input type="text" id="txt" />
-        <button id="btn">﹥</button>
-      </section>
+      <div class="baBox">
+        <section class="ba">
+          <input type="text" id="txt" placeholder="입력 해주세요..." />
+          <button id="btn">﹥</button>
+        </section>
+      </div>
     </div>
   </body>
+
   <script>
     const socket = io();
 
