@@ -10,7 +10,7 @@ app.set(morgan(`dev`));
 app.use(express.static(__dirname + "/public"));
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/views/login.html");
+  res.sendFile(__dirname + "/views/index.html");
 });
 
 app.get("/main", (req, res) => {
