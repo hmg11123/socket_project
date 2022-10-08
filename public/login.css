@@ -1,5 +1,5 @@
 .loginbody {
-  background-color: aqua;
+  background-color: #ededed;
 }
 
 .topBox {
@@ -9,12 +9,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .midBox {
   width: 100%;
-  height: 35vh;
+  height: 50vh;
+
+  padding-top: 50px;
 
   display: flex;
   flex-direction: column;
@@ -35,6 +37,8 @@
   padding-left: 15px;
 
   margin: 5px 0px;
+
+  font-size: 15px;
 }
 
 .midBox button {
@@ -45,6 +49,7 @@
   border: none;
 
   background-color: #182747;
+  box-shadow: 0.5px 0.5px 5px #182747;
   color: #fff;
 
   margin-top: 50px;
@@ -54,7 +59,5 @@
 
 .bottomBox {
   width: 100%;
-  height: 40vh;
-
-  background-color: rgb(37, 24, 6);
+  height: 17.5vh;
 }
