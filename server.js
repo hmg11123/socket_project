@@ -1,11 +1,12 @@
 const express = require("express");
-
 const app = express();
 const http = require("http").createServer(app);
 const io = require("socket.io")(http);
+const morgan = require("morgan");
 
 const PORT = 4000;
 
+app.set(morgan(`dev`));
 app.use(express.static(__dirname + "/public"));
 
 app.get("/", (req, res) => {
