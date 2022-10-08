@@ -1,13 +1,15 @@
+.loginbody {
+  background-color: aqua;
+}
+
 .topBox {
   width: 100%;
-  height: 30vh;
+  height: 25vh;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  background-color: rgb(200, 134, 47);
 }
 
 .midBox {
@@ -17,9 +19,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-
-  background-color: antiquewhite;
+  justify-content: flex-start;
 }
 
 .midBox input {
@@ -39,16 +39,22 @@
 
 .midBox button {
   width: 315px;
-  height: 50px;
+  height: 55px;
 
   border-radius: 12px;
-
   border: none;
+
+  background-color: #182747;
+  color: #fff;
+
+  margin-top: 50px;
+
+  font-size: 17px;
 }
 
 .bottomBox {
   width: 100%;
-  height: 35vh;
+  height: 40vh;
 
   background-color: rgb(37, 24, 6);
 }

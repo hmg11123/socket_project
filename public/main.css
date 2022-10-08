@@ -76,6 +76,7 @@
 
   color: #fff;
   background-color: #182747;
+  box-shadow: 0.5px 0.5px 10px #182747;
 
   display: flex;
   flex-direction: row;
