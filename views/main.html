@@ -1,47 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/styles.css" />
     <script src="/socket.io/socket.io.js"></script>
-</head>
-<body>
-
-    <header>
-        
-    </header>
+  </head>
+  <body>
+    <header class="headerBox"></header>
 
     <div class="mainBox">
-        <ul class= "mainul" id="room"></ul>
+      <ul class="mainUl" id="room"></ul>
     </div>
 
     <div class="">
-        <section class="baBox">
-            <input type="text" id="txt"/>
-            <button id="btn">전송</button>
-        </section>
+      <section class="baBox">
+        <input type="text" id="txt" />
+        <button id="btn">전송</button>
+      </section>
     </div>
-   
-</body>
-    <script>
-        const socket = io();
+  </body>
+  <script>
+    const socket = io();
 
-        const myTxt = document.getElementById("txt");
-        const myBtn = document.getElementById("btn")
-        const myRoom = document.getElementById("room");
+    const myTxt = document.getElementById("txt");
+    const myBtn = document.getElementById("btn");
+    const myRoom = document.getElementById("room");
 
-        myBtn.addEventListener("click", () => {
-            socket.emit("chat", myTxt.value)
-        });
+    myBtn.addEventListener("click", () => {
+      socket.emit("chat", myTxt.value);
+    });
 
-        socket.on("chat", (msg) => {
-            const liTag = document.createElement("li");
-            liTag.innerText = msg;
+    socket.on("chat", (msg) => {
+      const liTag = document.createElement("li");
+      liTag.innerText = msg;
 
-            myRoom.append(liTag);
-        });
-    </script>
+      myRoom.append(liTag);
+    });
+  </script>
 </html>

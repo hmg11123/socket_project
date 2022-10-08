@@ -1,10 +1,19 @@
+body {
+  background-color: #c1d7ae;
+}
+
+.headerBox {
+  width: 100%;
+  height: 25vh;
+}
+
 .mainBox {
   width: 100%;
-  height: 480px;
+  height: 50vh;
 
-  background-color: #999;
+  background-color: #fff;
 
-  border-radius: 30px;
+  border-radius: 35px 35px 0px 0px;
 
   display: flex;
   flex-direction: row;
@@ -12,10 +21,21 @@
   justify-content: center;
 }
 
-.baBox {
-  width: 100%;
+li {
+  width: 100px;
   height: 100px;
 
-  background-color: #888;
-  border-radius: 15px 0px 15px 0px;
+  background-color: #ededed;
+}
+
+.baBox {
+  width: 100%;
+  height: 25vh;
+
+  background-color: #fff;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
