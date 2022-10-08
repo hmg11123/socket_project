@@ -15,7 +15,7 @@
 
 .mainBox {
   width: 100%;
-  height: 60vh;
+  height: 55vh;
 
   background-color: #fff;
 
@@ -23,11 +23,34 @@
 
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
 
   overflow-y: scroll;
 }
+
+.mainSubBax {
+  width: 300px;
+  padding: 10px;
+}
+
+.errorBox {
+  width: 300px;
+  height: 15px;
+  padding: 5px 0 0 16px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.errorText {
+  color: red;
+  transition: 0.2s;
+  font-size: 14px;
+}
+
 
 .baBox {
   width: 100%;
@@ -36,7 +59,7 @@
   background-color: #fff;
 
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }

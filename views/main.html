@@ -15,14 +15,19 @@
       </header>
 
       <div class="mainBox">
-        <ul class="mainUl" id="room"></ul>
+        <div class="mainSubBax">
+          <ul class="mainUl" id="room"></ul>
+        </div>
       </div>
 
       <div class="baBox">
         <section class="ba">
-          <input type="text" id="txt" placeholder="입력 해주세요..." />
+          <input type="text" id="txt" placeholder="내용을 입력 해주세요." />
           <button id="btn">﹥</button>
         </section>
+        <div class="errorBox">
+          <p class="errorText" id="errorText"></p>
+        </div>
       </div>
     </div>
   </body>
@@ -33,10 +38,32 @@
     const myTxt = document.getElementById("txt");
     const myBtn = document.getElementById("btn");
     const myRoom = document.getElementById("room");
+    const errorText = document.getElementById("errorText");
 
-    myBtn.addEventListener("click", () => {
+    myBtn.addEventListener("click", async () => {
+      if(!myTxt.value && myTxt.value.length === 0){
+        return errorText.innerText="내용을 입력해주세요."
+      }
+      errorText.innerText=""
+
       socket.emit("chat", myTxt.value);
+
+      myTxt.value = "";
     });
+
+    myTxt.addEventListener("keydown", async (key) => {
+      if(key.key === "Enter"){
+        if(!myTxt.value && myTxt.value.length === 0){
+          return errorText.innerText="내용을 입력해주세요."
+        }
+        errorText.innerText=""
+
+        socket.emit("chat", myTxt.value);
+  
+        myTxt.value = "";
+      };
+    });
+
 
     socket.on("chat", (msg) => {
       const liTag = document.createElement("li");

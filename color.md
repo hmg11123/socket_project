@@ -6,5 +6,4 @@ subTheme_3: "#8cc084",
 
 garyColor: "#EDEDED",
 warnningColoer: "#A100702",
-
 ]
