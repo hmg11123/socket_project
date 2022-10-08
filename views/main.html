@@ -35,6 +35,13 @@
   <script>
     const socket = io();
 
+    const loginData = sessionStorage.getItem("login") ? JSON.parse(sessionStorage.getItem("login")) : false;
+
+    if(!loginData){
+      alert("로그인 후 이용해주세요.");
+      location.href = "/";
+    }
+
     const myTxt = document.getElementById("txt");
     const myBtn = document.getElementById("btn");
     const myRoom = document.getElementById("room");
@@ -44,7 +51,7 @@
       if(!myTxt.value && myTxt.value.length === 0){
         return errorText.innerText="내용을 입력해주세요."
       }
-      errorText.innerText=""
+      errorText.innerText = "";
 
       socket.emit("chat", myTxt.value);
 
@@ -56,7 +63,7 @@
         if(!myTxt.value && myTxt.value.length === 0){
           return errorText.innerText="내용을 입력해주세요."
         }
-        errorText.innerText=""
+        errorText.innerText = "";
 
         socket.emit("chat", myTxt.value);
   
@@ -64,12 +71,71 @@
       };
     });
 
+    socket.on("dateMsg", (value) => {
+      if (value.isDateMsg) {
+        const dateMsg = document.createElement("div");
 
-    socket.on("chat", (msg) => {
-      const liTag = document.createElement("li");
-      liTag.innerText = msg;
+        dateMsg.style.width = "100%";
+        dateMsg.style.padding = "5px";
+        dateMsg.style.margin = "20px 0";
+        dateMsg.style.borderRadius = "5px";
+        dateMsg.style.backgroundColor = "#ecf0f1";
+        dateMsg.style.display = "flex";
+        dateMsg.style.justifyContent = "center";
+        dateMsg.style.alignItems = "center";
 
-      myRoom.append(liTag);
+        dateMsg.innerText = value.date;
+
+        myRoom.append(dateMsg);
+
+        return;
+      }
+    })
+
+
+    socket.on("chat", (value) => {
+      const avatar = document.createElement("div");
+      
+      if (value.isAvatar) {
+        const avatarDiv = document.createElement("div");
+        const avatarName = document.createElement("p");
+        const msgTime = document.createElement("p");
+
+        avatarDiv.style.display = "flex";
+        avatarDiv.style.flexDirection = "row";
+        avatarDiv.style.justifyContent = "space-between";
+        avatarDiv.style.alignItems = "center";
+
+        avatarName.innerText = loginData.username;
+        msgTime.innerText = value.time;
+
+        avatar.append(avatarDiv);
+        avatarDiv.append(avatarName);
+        avatarDiv.append(msgTime);
+
+        const liTag = document.createElement("li");
+        liTag.innerText = value.msg;
+  
+        avatar.style.margin = "10px 0";
+  
+  
+        myRoom.append(avatar);
+        avatar.append(liTag);
+
+        return;
+      } else {
+        const liTag = document.createElement("li");
+        liTag.innerText = value.msg;
+
+        avatar.style.margin = "10px 0";
+        avatar.style.width = "100%";
+
+
+        myRoom.append(avatar);
+        avatar.append(liTag);
+
+        return;
+      }
     });
   </script>
 </html>

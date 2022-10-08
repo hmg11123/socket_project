@@ -13,12 +13,13 @@ h1 {
 }
 
 li {
-  width: auto;
   padding: 10px;
   border-radius: 12px;
 
   margin-top: 5px;
   background-color: #ededed;
+  flex-wrap: wrap;
+  word-break: break-all;
 }
 
 h2 {
